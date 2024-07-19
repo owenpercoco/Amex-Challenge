@@ -34,7 +34,7 @@ export const useCachingFetch: UseCachingFetch = (url) => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [data, setData] = useState<any | null>(null);
   const [error, setError] = useState<Error | null>(null);
-  console.log(cache)
+
   useEffect(() => {
     if (cache[url]) {
       setData(cache[url]);

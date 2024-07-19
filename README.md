@@ -8,7 +8,7 @@ npm start
 task 1:
 Making the application production ready:
 I decided to add an environment variable file to store the API url since its duplicated in more than one place.
-
+After that I added some simple prettierrc & eslint configurations, for established code quality.
 
 
 task 2:
