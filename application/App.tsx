@@ -15,13 +15,7 @@ type Application = FC & {
 
 const App: Application = () => {
   const apiUrl: string = process.env.API_URL || '';
-  const {
-    data: rawData,
-    isLoading,
-    error,
-  } = useCachingFetch(
-    apiUrl,
-  );
+  const { data: rawData, isLoading, error } = useCachingFetch(apiUrl);
   if (isLoading) return <div>Loading...</div>;
   if (error || rawData === null) return <div>Error: {error?.message}</div>;
 
@@ -39,9 +33,7 @@ const App: Application = () => {
 
 App.preLoadServerData = async () => {
   const apiUrl: string = process.env.API_URL || '';
-  await preloadCachingFetch(
-    apiUrl,
-  );
+  await preloadCachingFetch(apiUrl);
 };
 
 export default App;

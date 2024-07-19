@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 // You may edit this file, add new files to support this file,
 // and/or add new dependencies to the project as you see fit.
 // However, you must not change the surface API presented from this file,
@@ -10,8 +10,7 @@ type UseCachingFetch = (url: string) => {
   error: Error | null;
 };
 
-
-const cache: Record<string, any> = {}
+const cache: Record<string, any> = {};
 /**
  * 1. Implement a caching fetch hook. The hook should return an object with the following properties:
  * - isLoading: a boolean that is true when the fetch is in progress and false otherwise
@@ -98,7 +97,7 @@ export const preloadCachingFetch = async (url: string): Promise<void> => {
  * 4. This file passes a type-check.
  *
  */
-export const serializeCache = (): string => JSON.stringify(cache);;
+export const serializeCache = (): string => JSON.stringify(cache);
 
 export const initializeCache = (serializedCache: string): void => {
   Object.assign(cache, JSON.parse(serializedCache));
