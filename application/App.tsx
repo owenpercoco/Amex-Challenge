@@ -6,17 +6,21 @@ import {
 import Person from './Person';
 import { validateData } from './validation';
 
+import dotenv from 'dotenv';
+dotenv.config();
+
 type Application = FC & {
   preLoadServerData?: () => Promise<void>;
 };
 
 const App: Application = () => {
+  const apiUrl: string = process.env.API_URL || '';
   const {
     data: rawData,
     isLoading,
     error,
   } = useCachingFetch(
-    'https://randomapi.com/api/6de6abfedb24f889e0b5f675edc50deb?fmt=raw&sole&seed=123',
+    apiUrl,
   );
   if (isLoading) return <div>Loading...</div>;
   if (error || rawData === null) return <div>Error: {error?.message}</div>;
@@ -34,8 +38,9 @@ const App: Application = () => {
 };
 
 App.preLoadServerData = async () => {
+  const apiUrl: string = process.env.API_URL || '';
   await preloadCachingFetch(
-    'https://randomapi.com/api/6de6abfedb24f889e0b5f675edc50deb?fmt=raw&sole&seed=123',
+    apiUrl,
   );
 };
 

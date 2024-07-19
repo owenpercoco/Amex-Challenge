@@ -1,3 +1,13 @@
+instructions for running:
+the application should run with
+`
+npm i
+npm start
+`
+
+task 1:
+Making the application production ready:
+I decided to add an environment variable file to store the API url since its duplicated in more than one place.
 
 
 
